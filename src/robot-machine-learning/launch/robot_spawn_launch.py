@@ -9,6 +9,26 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
+'''
+FILE NAME                  SPAWN COORDINATES
+m-shape-circle-room.world ;      -6 -7
+circle-room.world         ;      -5 -5
+square.world              ;      -6 -7
+triangle.world            ;      -5 -5
+eight.world               ;      
+maze.world                ;        
+u-shape.world             ;
+s-shape.world             ; 
+
+hair-pin-bend.world
+'''
+
+
+WORLD_FILE = 'square.world'
+
+spawn_x = '-6.0'
+spawn_y = '-7.0'
+spawn_z = '0.0'
 
 def generate_launch_description():
     pkg_name = 'robot-machine-learning'
@@ -21,7 +41,7 @@ def generate_launch_description():
     declare_world = DeclareLaunchArgument(
         'world',
         default_value=os.path.join(
-            get_package_share_directory('robot-machine-learning'), 'worlds', 'circle-room.world'
+            get_package_share_directory('robot-machine-learning'), 'worlds', WORLD_FILE
         ),
         description='World file to load in Gazebo'
     )
@@ -38,9 +58,9 @@ def generate_launch_description():
         arguments=[
             '-topic', 'robot_description',  
             '-entity', 'my_bot',            
-            '-x', '-7',
-            '-y', '-3',
-            '-z', '0.0',                   
+            '-x', spawn_x,
+            '-y', spawn_y,
+            '-z', spawn_z,                   
             # '-R', '0.0',                   
             # '-P', '0.0',                   
             # '-Y', '0'                   
