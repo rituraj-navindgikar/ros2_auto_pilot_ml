@@ -24,10 +24,10 @@ hair-pin-bend.world
 '''
 
 
-WORLD_FILE = 'circle-room.world'
+WORLD_FILE = 'maze.world'
 
-spawn_x = '-5.0'
-spawn_y = '-5.0'
+spawn_x = '-6.0'
+spawn_y = '-7.0'
 spawn_z = '0.0'
 
 def generate_launch_description():
