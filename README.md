@@ -3,7 +3,7 @@
 ## Autonomous Robot Navigation Using Machine Learning
 
 ### **Context**
-This project demonstrates the use of machine learning, I have used a **Random Forest model**, to enable autonomous robot navigation in diverse and challenging environments. Built on top of **ROS 2** (Humble) and leveraging the **Gazebo simulation environment**, the robot uses **360-degree LiDAR scans** to navigate through predefined worlds such as mazes, circular rooms, and square rooms. The system achieves impressive accuracy in predicting motion commands (`cmd_vel`) such as moving forward, turning, or stopping, based on LiDAR input.
+This project demonstrates the use of machine learning, I have used a **Random Forest model**, to enable autonomous robot navigation in the environment. Built on top of **ROS 2** (Humble) and using the **Gazebo**, the robot uses **360-degree LiDAR scans** to navigate through predefined worlds such as mazes, circular rooms, and square rooms. If trained well the system can achieve impressive accuracy in predicting motion commands (`cmd_vel`) such as moving forward, turning, or stopping, based on LiDAR input.
 
 ---
 
