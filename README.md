@@ -111,5 +111,5 @@ If a robot or world is not loading, double-check the paths in the [robot_spawn_l
 
 ---
 
-Creator & Devloper
+Creator & Developer
 Rituraj Navindgikar
