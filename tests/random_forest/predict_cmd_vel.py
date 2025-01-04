@@ -11,7 +11,7 @@ import signal
 class PredictCmdVelNode(Node):
     def __init__(self):
         super().__init__('predict_cmd_vel')
-        self.model = joblib.load("model_square.pkl")
+        self.model = joblib.load("mocel_maze.pkl")
         self.get_logger().info("Model loaded")
 
         self.scan_subscriber = self.create_subscription(

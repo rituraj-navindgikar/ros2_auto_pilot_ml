@@ -19,7 +19,6 @@ eight.world               ;
 maze.world                ;        
 u-shape.world             ;
 s-shape.world             ; 
-
 hair-pin-bend.world
 '''
 
