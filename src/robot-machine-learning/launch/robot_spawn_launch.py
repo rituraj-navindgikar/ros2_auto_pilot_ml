@@ -3,7 +3,7 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
@@ -52,30 +52,36 @@ def generate_launch_description():
     )
 
     # Declare the world argument - refer above for spawn points
-    spawn_x = DeclareLaunchArgument('spawn_x', default_value='-6', description='Spawn x coordinate in Gazebo')
-    spawn_y = DeclareLaunchArgument('spawn_y', default_value='-7', description='Spawn y coordinate in Gazebo')
-    spawn_z = DeclareLaunchArgument('spawn_z', default_value='0', description='Spawn z coordinate in Gazebo')
-    roll = DeclareLaunchArgument('roll', default_value='0', description='Roll')
-    pitch = DeclareLaunchArgument('pitch', default_value='0', description='Pitch')
-    yaw = DeclareLaunchArgument('yaw', default_value='0', description='Yaw')
+    spawn_x = DeclareLaunchArgument('spawn_x', default_value="-6.0", description='Spawn x coordinate in Gazebo')
+    spawn_y = DeclareLaunchArgument('spawn_y', default_value="-7.0", description='Spawn y coordinate in Gazebo')
+    spawn_z = DeclareLaunchArgument('spawn_z', default_value="0.0", description='Spawn z coordinate in Gazebo')
+    roll = DeclareLaunchArgument('roll', default_value="0.0", description='Roll')
+    pitch = DeclareLaunchArgument('pitch', default_value="0.0", description='Pitch')
+    yaw = DeclareLaunchArgument('yaw', default_value="0.0", description='Yaw')
 
-    spawn_entity = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        arguments=[
-            '-topic', 'robot_description',  
-            '-entity', 'my_bot',            
-            '-x', LaunchConfiguration('spawn_x'),
-            '-y', LaunchConfiguration('spawn_y'),
-            '-z', LaunchConfiguration('spawn_z'),                   
-            '-R', LaunchConfiguration('roll'),
-            '-P', LaunchConfiguration('pitch'),
-            '-Y', LaunchConfiguration('yaw')
-        ],
-        output='screen'
+    spawn_entity = TimerAction(
+        period=2.0,  # Wait for 5 seconds before executing
+        actions=[
+            Node(
+                package='gazebo_ros',
+                executable='spawn_entity.py',
+                arguments=[
+                    '-topic', 'robot_description',
+                    '-entity', 'my_bot',
+                    '-x', LaunchConfiguration('spawn_x'),
+                    '-y', LaunchConfiguration('spawn_y'),
+                    '-z', LaunchConfiguration('spawn_z'),
+                    '-R', LaunchConfiguration('roll'),
+                    '-P', LaunchConfiguration('pitch'),
+                    '-Y', LaunchConfiguration('yaw')
+                ],
+                output='screen'
+            )
+        ]
     )
 
     ld = LaunchDescription()
+
     # arguments
     ld.add_action(world_arg)
     ld.add_action(spawn_x)
