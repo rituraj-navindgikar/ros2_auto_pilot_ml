@@ -3,7 +3,7 @@
 ## Autonomous Robot Navigation Using Machine Learning
 
 ### **Context**
-This project demonstrates the use of machine learning, specifically a **Random Forest model**, to enable autonomous robot navigation in diverse and challenging environments. Built on top of **ROS 2** (Humble) and leveraging the **Gazebo simulation environment**, the robot uses **360-degree LiDAR scans** to navigate through predefined worlds such as mazes, circular rooms, and square rooms. The system achieves impressive accuracy in predicting motion commands (`cmd_vel`) such as moving forward, turning, or stopping, based on LiDAR input.
+This project demonstrates the use of machine learning, I have used a **Random Forest model**, to enable autonomous robot navigation in the environment. Built on top of **ROS 2** (Humble) and using the **Gazebo**, the robot uses **360-degree LiDAR scans** to navigate through predefined worlds such as mazes, circular rooms, and square rooms. If trained well the system can achieve impressive accuracy in predicting motion commands (`cmd_vel`) such as moving forward, turning, or stopping, based on LiDAR input.
 
 ---
 
@@ -11,15 +11,6 @@ This project demonstrates the use of machine learning, specifically a **Random F
 - **Training a Machine Learning Model**: Using recorded LiDAR scan data and corresponding motion commands to train a Random Forest model.
 - **Testing the Model**: Evaluating the trained Random Forest model's accuracy, precision, recall, and F1 score on test datasets.
 - **Deploying the Model**: Real-time prediction and robot navigation in simulation environments using ROS 2.
-
----
-
-### **Repository Structure**
-The repository is modular, making it easy to extend or modify components:
-- **Robot Descriptions**: Xacro files for defining the robot's components (e.g., LiDAR, joints).
-- **World Configurations**: Predefined Gazebo worlds such as mazes and circular rooms for training and testing.
-- **Machine Learning Scripts**: Includes scripts for training, testing, and deploying Random Forest models.
-- **Testing Framework**: Provides tools for validating the model's performance in simulation environments.
 
 ---
 
@@ -111,5 +102,5 @@ If a robot or world is not loading, double-check the paths in the [robot_spawn_l
 
 ---
 
-Creator & Devloper
+Creator & Developer
 Rituraj Navindgikar
