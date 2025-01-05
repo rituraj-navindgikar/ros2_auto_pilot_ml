@@ -104,3 +104,7 @@ If a robot or world is not loading, double-check the paths in the [robot_spawn_l
 
 Creator & Developer
 Rituraj Navindgikar
+
+## Star Gazers Arena
+[![Visits Badge](https://badges.pufler.dev/visits/rituraj-navindgikar/ros2_auto_pilot_ml)](https://badges.pufler.dev)
+
