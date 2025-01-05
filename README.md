@@ -51,9 +51,14 @@ source install/setup.bash
 ```
 
 ## 4. Launch the Robot in Gazebo
-Launch the robot in a predefined Gazebo world. Specify the `.world` file of your choice. You can also modify the spawn location depending on your world configuration:
+Launch the robot in a predefined Gazebo world. Specify the `.world` file of your choice. 
+You can also modify the `spawn_x`, `spawn_y`, `spawn_z`, `roll`, `pitch`, `yaw` location depending on your world configuration:
 ```bash
-ros2 launch robot-machine-learning robot_spawn_launch.py world:=<path to your .world file>
+ros2 launch robot-machine-learning robot_spawn_launch.py world:=<.world file name> spawn_x:=3 spawn_y:=-7
+```
+Use this command to know all the possible arguments and usage pattern `<name>:=<value>`
+```bash
+ros2 launch robot-machine-learning robot_spawn_launch.py --show-args
 ```
 
 ## 5. Data Recording
